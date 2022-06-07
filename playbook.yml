@@ -4,6 +4,7 @@
     - debug:
 
     - amazon.aws.ec2_instance:
+        region: us-east-2
         name: node1-xt4s7
         key_name: ssh_provision_xt4s7
         vpc_subnet_id: subnet-07141c97c5d0ac3ca
@@ -16,6 +17,7 @@
           Environment: Testing
 
     - amazon.aws.ec2_instance_info:
+        region: us-east-2
       register: output
 
     - debug: var=output
