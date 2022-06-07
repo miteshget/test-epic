@@ -1,0 +1,22 @@
+ansible-navigator:
+  ansible:
+    playbook: playbook.yml 
+    inventories:
+      - ./hosts 
+  app: run  
+  execution-environment:
+    pull-policy: missing  
+    environment-variables:
+      pass:
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY
+        - AWS_REGION
+  mode: stdout 
+  logging:
+    append: False
+    level: critical
+    file: /tmp/aws/ansible-navigator.log
+  playbook-artifact:
+    enable: True
+    replay: /tmp/aws/artifact.json
+    save-as: /tmp/aws/artifact.json
