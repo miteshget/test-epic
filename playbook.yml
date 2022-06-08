@@ -19,6 +19,7 @@
             volume_size: 50
             delete_on_termination: true
         tags:
+          AnsibleGroup: test_nodes
           Environment: Testing
 
     - amazon.aws.ec2_instance_info:
