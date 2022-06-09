@@ -5,7 +5,7 @@
 
     - amazon.aws.ec2_instance:
         region: us-east-2
-        name: node2-xt4s7
+        name: "{{ item }}-xt4s7"
         key_name: ssh_provision_xt4s7
         vpc_subnet_id: subnet-07141c97c5d0ac3ca
         instance_type: t3.medium
@@ -19,8 +19,14 @@
             volume_size: 50
             delete_on_termination: true
         tags:
-          AnsibleGroup: test_nodes
-          Environment: Testing
+          AnsibleGroup: demo_nodes
+          Environment: demo
+          NodeName: "{{ item }}"
+      loop:
+        - node1
+        - node2
+        - node3
+        - node4
 
     - amazon.aws.ec2_instance_info:
         region: us-east-2
